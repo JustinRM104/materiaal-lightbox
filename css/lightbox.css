@@ -1,10 +1,12 @@
 body {
-    margin: 0;
-    min-height: 100vh;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  background: #181a1b;
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 header, footer {
     padding: 1em 2em;
+    color: white;
 }
 h1 {
     margin: 0;
@@ -12,10 +14,107 @@ h1 {
 }
 img {
     max-width: 100%;
+
 }
 main{
     padding: 1em 2em;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 2em;
 }
+
+.kleineBox img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.kleineBox p {
+  grid-column: 1;
+  grid-row: 1;
+  color: white;
+  transition-duration: 0.4s;
+}
+
+.kleineBox {
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  justify-items: center;
+  text-shadow: 0 0 3px black;
+  transition-duration: 0.4s;
+}
+
+.fas {
+  cursor: pointer;
+  float: right;
+}
+
+.fas:hover {
+  color: red;
+}
+
+.kleineBox:hover {
+  filter: sepia(100%);
+  transition-duration: 0.4s;
+}
+
+.kleineBox:hover p {
+  transition-duration: 0.4s;
+  letter-spacing: 0.2em;
+  text-shadow: 2px 2px 1px black;
+  font-weight: bolder;
+}
+
+.modaalInhoud {
+  background-color: white;
+  padding: 1em 2em;
+  max-width: 70vw;
+  overflow: auto;
+  max-height: calc(90vh - 2em);
+  margin-top: 1em;
+  max-width: 50vw;
+  animation: vanonderen .5s cubic-bezier(.49,.5,.52,1.48) forwards;
+}
+
+#login {
+  float: right;
+}
+
+.input {
+  margin: .25em;
+  margin-left: 0;
+  padding: 0.5em;
+  border-radius: 0.1em;
+  border: 1px solid black;
+}
+
+@keyframes vanonderen {
+  0% {
+    margin-top: 100vh;
+  }
+  100% {
+    margin-top: 0;
+  }
+}
+
+#modaal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.4);
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  overflow: auto;
+}
+
 .validatie img {
     height: 1em;
     width: auto;
